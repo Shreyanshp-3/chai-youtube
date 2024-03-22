@@ -1,0 +1,11 @@
+{
+  "name": "chai_or_youtube",
+  "version": "1.0.0",
+  "description": "all_backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shreyansh",
+  "license": "ISC"
+}
