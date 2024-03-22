@@ -1,0 +1,2 @@
+nodemon is a dev dependency used only in developemnt
+it is not taken into the production environment
