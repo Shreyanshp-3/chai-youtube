@@ -2,15 +2,47 @@
 import dotenv from 'dotenv'
 import connectDB from './db/index.js';
 import mongoose from 'mongoose';
+import { app } from './app.js';
 
 
 
 dotenv.config({
-    path:'./env'
+    path: './env'
 })
 
 // this is like writing the db code in another file and just runining te 
+// now here when we connect this asych we also get a promise as in return
 connectDB()
+    .then(() => {
+        // if something goes wronge in the app
+        app.on("error", (error) => {
+            console.log("Not listning databases", error);
+            throw error
+        })
+        app.listen(process.env.PORT || 3000, () => {
+            console.log(`Server running on port ${process.env.PORT}`)
+        })
+    })
+    .catch((err) => {
+        console.log("Mongo db connection failed!", err);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // this is the first way like using the index js to start the server and connect to the database
